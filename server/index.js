@@ -10,7 +10,8 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// Transporter Code
+// Transporter Code (DISABLED FOR SIMULATION)
+/*
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -18,47 +19,24 @@ const transporter = nodemailer.createTransport({
         pass: process.env.EMAIL_PASS
     }
 });
-
-// Verify Transporter
-transporter.verify((error, success) => {
-    if (error) {
-        console.log('Error verifying transporter:', error);
-    } else {
-        console.log('Server is ready to take messages');
-    }
-});
+*/
 
 // Routes
 app.post('/api/contact', async (req, res) => {
     const { name, email, message } = req.body;
 
-    const mailOptions = {
-        from: email, // Sender address (conceptually, though Gmail overrides this to authenticated user)
-        to: process.env.EMAIL_USER, // Your email
-        subject: `New Portfolio Message from ${name}`,
-        text: `
-            Name: ${name}
-            Email: ${email}
-            
-            Message:
-            ${message}
-        `,
-        html: `
-            <h3>New Portfolio Message</h3>
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Message:</strong></p>
-            <p>${message.replace(/\n/g, '<br>')}</p>
-        `
-    };
+    console.log("========================================");
+    console.log(" [SIMULATION MODE] New Contact Message");
+    console.log("========================================");
+    console.log(` FROM: ${name} (${email})`);
+    console.log(" MESSAGE:");
+    console.log(message);
+    console.log("========================================");
 
-    try {
-        await transporter.sendMail(mailOptions);
-        res.status(200).json({ success: true, message: 'Email sent successfully!' });
-    } catch (error) {
-        console.error('Error sending email:', error);
-        res.status(500).json({ success: false, message: 'Failed to send email.' });
-    }
+    // Simulate network delay
+    setTimeout(() => {
+        res.status(200).json({ success: true, message: 'Simulation: Email sent successfully!' });
+    }, 1000);
 });
 
 app.listen(PORT, () => {
