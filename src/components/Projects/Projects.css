@@ -1,0 +1,134 @@
+.projects-section {
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+    /* Hide scrollbar for section, but allow inner scroll */
+}
+
+.section-title {
+    font-size: 3rem;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.projects-scroll-container {
+    overflow-x: auto;
+    padding: 20px 0 50px 0;
+    /* Space for hover effects */
+    -webkit-overflow-scrolling: touch;
+    /* Scrollbar visible for better UX */
+    scrollbar-width: auto;
+    scrollbar-color: var(--primary-color) rgba(255, 255, 255, 0.1);
+}
+
+.projects-scroll-container::-webkit-scrollbar {
+    height: 8px;
+    display: block;
+}
+
+.projects-scroll-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+.projects-scroll-container::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+.projects-track {
+    display: flex;
+    gap: 30px;
+    padding: 0 20px;
+    /* Side padding */
+    width: max-content;
+    /* Ensure track spans width of children */
+}
+
+.project-card {
+    width: 300px;
+    height: 400px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    transition: border-color 0.3s;
+}
+
+.project-card:hover {
+    border-color: var(--primary-color);
+}
+
+.project-image-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.9));
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.05);
+}
+
+.project-info {
+    position: relative;
+    z-index: 2;
+}
+
+.project-category {
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.project-card h3 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.project-short-desc {
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+/* Modal Internal Styles */
+.detail-tags {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tag {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    color: var(--accent);
+}
+
+.detail-desc {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.detail-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.btn.small {
+    padding: 10px 20px;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
