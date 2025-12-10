@@ -17,7 +17,7 @@ export default function Contact() {
         };
 
         try {
-            const response = await fetch('http://localhost:5001/api/contact', {
+            const response = await fetch('https://portfolio-6wrz.onrender.com/api/contact', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
