@@ -1,68 +1,62 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code, Database, Layout, Terminal } from 'lucide-react';
+import { Code, Layers, Brain, Cog, PenTool } from 'lucide-react';
 import './Skills.css';
 
 const skillsData = [
     {
-        category: "Languages",
-        icon: <Code size={40} />,
-        items: ["JavaScript", "Python", "Dart", "SQL", "HTML", "CSS"]
+        category: "Programming",
+        icon: <Code size={24} />,
+        items: ["Python", "JavaScript", "SQL", "HTML5", "CSS3"]
     },
     {
-        category: "Frontend & Mobile",
-        icon: <Layout size={40} />,
-        items: ["React", "Flutter", "Tailwind CSS", "Three.js", "Framer Motion", "UI/UX Design"]
+        category: "Full-Stack Development",
+        icon: <Layers size={24} />,
+        items: ["React", "Node.js", "PostgreSQL", "REST API", "Tailwind CSS", "Git", "GitHub"]
     },
     {
-        category: "Backend & DB",
-        icon: <Database size={40} />,
-        items: ["Node.js", "Express", "MongoDB", "PostgreSQL", "Firebase"]
+        category: "Data and AI",
+        icon: <Brain size={24} />,
+        items: ["Data Analysis", "Machine Learning", "PyTorch", "Jupyter", "Data Visualisation", "Data Preprocessing"]
     },
     {
-        category: "Data & Tools",
-        icon: <Terminal size={40} />,
-        items: ["Data Science", "Git", "Figma", "VS Code", "Event Management"]
+        category: "Engineering and Research",
+        icon: <Cog size={24} />,
+        items: ["Numerical Modelling", "Engineering Data Analysis", "AutoCAD", "Experimental Data", "Technical Documentation"]
+    },
+    {
+        category: "Design and Product",
+        icon: <PenTool size={24} />,
+        items: ["Figma", "Canva", "UI/UX", "Product Prototyping"]
     }
 ];
 
 export default function Skills() {
-    const container = {
-        hidden: { opacity: 0 },
-        show: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.2
-            }
-        }
-    };
-
-    const item = {
-        hidden: { opacity: 0, y: 20 },
-        show: { opacity: 1, y: 0 }
-    };
-
     return (
         <section id="skills" className="skills-section">
             <div className="container">
-                <h2 className="section-title">Technical <span className="highlight">Skills</span></h2>
+                <span className="section-eyebrow">02 — Expertise</span>
+                <h2 className="section-title">Technical Skills</h2>
 
-                <div className="skills-grid">
-                    {skillsData.map((skillGroup) => (
+                <div className="skills-matrix glass-panel">
+                    {skillsData.map((skillGroup, index) => (
                         <motion.div
                             key={skillGroup.category}
-                            className="skill-card glass"
-                            variants={item}
+                            className="skill-row"
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.1, duration: 0.5 }}
                         >
-                            <div className="skill-icon">
+                            <div className="skill-category">
                                 {skillGroup.icon}
+                                <h3>{skillGroup.category}</h3>
                             </div>
-                            <h3>{skillGroup.category}</h3>
-                            <ul className="skill-list">
+                            <div className="skill-items">
                                 {skillGroup.items.map((skill) => (
-                                    <li key={skill}>{skill}</li>
+                                    <span key={skill} className="skill-pill">{skill}</span>
                                 ))}
-                            </ul>
+                            </div>
                         </motion.div>
                     ))}
                 </div>

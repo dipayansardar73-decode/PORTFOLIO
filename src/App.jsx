@@ -3,18 +3,24 @@ import './index.css';
 import WaterBackground from './components/Background/WaterBackground';
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
+import Credibility from './components/Credibility/Credibility';
 import About from './components/About/About';
+import SelectedWork from './components/SelectedWork/SelectedWork';
+import Experience from './components/Experience/Experience';
+import Research from './components/Research/Research';
 import Skills from './components/Skills/Skills';
-import Projects from './components/Projects/Projects';
+import OpenSource from './components/OpenSource/OpenSource';
 import Education from './components/Education/Education';
+import Exploring from './components/Exploring/Exploring';
+import Roadmap from './components/Roadmap/Roadmap';
 import Contact from './components/Contact/Contact';
+import Footer from './components/Footer/Footer';
 
 import ErrorBoundary from './components/UI/ErrorBoundary';
 
 function App() {
   return (
     <div className="app-main">
-      {/* Background is fixed */}
       <ErrorBoundary>
         <Suspense fallback={null}>
           <WaterBackground />
@@ -25,23 +31,20 @@ function App() {
 
       <main>
         <Hero />
+        <Credibility />
         <About />
         <Skills />
-        <Projects />
+        <Experience />
+        <Research />
+        <SelectedWork />
+        <Roadmap />
+        <OpenSource />
         <Education />
+        <Exploring />
         <Contact />
       </main>
 
-      <footer style={{
-        textAlign: 'center',
-        padding: '20px',
-        color: '#555',
-        fontSize: '0.8rem',
-        position: 'relative',
-        zIndex: 10
-      }}>
-        &copy; 2025 Designed & Built by Dipayan Sardar.
-      </footer>
+      <Footer />
     </div>
   );
 }

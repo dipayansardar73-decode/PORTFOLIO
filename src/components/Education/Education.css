@@ -1,108 +1,126 @@
-.education-section {
-    padding: 100px 0;
+.credentials-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    margin-top: 40px;
 }
 
-.timeline {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
+.column-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-subtle);
 }
 
-.timeline::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 2px;
-    height: 100%;
-    background: var(--glass-border);
-    transform: translateX(-50%);
+.column-header h3 {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    font-family: var(--font-main);
 }
 
-.timeline-item {
-    margin-bottom: 50px;
-    position: relative;
-    width: 50%;
+.inline-icon {
+    color: var(--accent-cyan);
 }
 
-.timeline-item:nth-child(odd) {
-    left: 0;
-    padding-right: 40px;
-    text-align: right;
+.edu-list,
+.achieve-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
-.timeline-item:nth-child(even) {
-    left: 50%;
-    padding-left: 40px;
-    text-align: left;
+.edu-card,
+.achieve-card {
+    padding: 24px 32px;
+    border-radius: var(--radius-sm);
+    transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-.timeline-content {
-    padding: 30px;
-    position: relative;
+.edu-card:hover,
+.achieve-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.15);
 }
 
-.timeline-content::after {
-    content: '';
-    position: absolute;
-    top: 20px;
-    width: 20px;
-    height: 20px;
-    background: var(--primary-color);
-    border-radius: 50%;
-    box-shadow: 0 0 10px var(--primary-color);
+.edu-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 8px;
 }
 
-.timeline-item:nth-child(odd) .timeline-content::after {
-    right: -50px;
+.edu-card-header h4 {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    line-height: 1.4;
 }
 
-.timeline-item:nth-child(even) .timeline-content::after {
-    left: -50px;
+.edu-expected {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.03);
+    padding: 4px 10px;
+    border-radius: 12px;
+    white-space: nowrap;
 }
 
-.timeline-year {
-    display: inline-block;
-    padding: 5px 10px;
-    background: rgba(0, 188, 212, 0.1);
-    color: var(--primary-color);
-    border-radius: 15px;
-    font-size: 0.8rem;
-    margin-bottom: 15px;
+.edu-inst {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--accent-cyan);
+    margin-bottom: 16px;
 }
 
-.timeline-content h3 {
-    margin-bottom: 5px;
+.edu-relevant {
+    padding-top: 16px;
+    border-top: 1px solid var(--border-subtle);
 }
 
-.timeline-content h4 {
-    color: #aaa;
-    font-weight: 500;
-    margin-bottom: 15px;
-    font-size: 0.9rem;
+.edu-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
-.timeline-content p {
-    color: #ccc;
-    line-height: 1.6;
+.edu-tags span {
+    background: rgba(0, 188, 212, 0.05);
+    color: var(--text-secondary);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    border: 1px solid rgba(0, 188, 212, 0.15);
 }
 
-@media (max-width: 768px) {
-    .timeline::before {
-        left: 20px;
+.achieve-card {
+    display: flex;
+    align-items: center;
+}
+
+.achieve-card p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+@media (max-width: 1024px) {
+    .credentials-wrapper {
+        grid-template-columns: 1fr;
+        gap: 48px;
     }
+}
 
-    .timeline-item {
-        width: 100%;
-        left: 0 !important;
-        padding-left: 50px !important;
-        padding-right: 0 !important;
-        text-align: left !important;
+@media (max-width: 640px) {
+    .edu-card,
+    .achieve-card {
+        padding: 24px;
     }
-
-    .timeline-item:nth-child(odd) .timeline-content::after,
-    .timeline-item:nth-child(even) .timeline-content::after {
-        left: -40px;
-        right: auto;
+    
+    .edu-card-header {
+        flex-direction: column;
+        gap: 8px;
     }
 }

@@ -4,18 +4,23 @@
     left: 0;
     width: 100%;
     z-index: 100;
-    padding: 20px 0;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    background: transparent;
     transition: all 0.3s ease;
+    border-bottom: 1px solid transparent;
 }
 
 .navbar.scrolled {
-    padding: 15px 0;
-    background: rgba(5, 5, 5, 0.8);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--glass-border);
+    background: rgba(6, 9, 14, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-subtle);
 }
 
 .nav-container {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -33,7 +38,40 @@
 
 .nav-links {
     display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.nav-items-group {
+    display: flex;
     gap: 30px;
+    align-items: center;
+}
+
+.nav-actions-group {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    padding-left: 20px;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-social-icon {
+    color: #a0aec0;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-social-icon:hover {
+    color: var(--primary-color);
+}
+
+.nav-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    gap: 8px;
 }
 
 .nav-link {
@@ -64,6 +102,14 @@
     color: var(--primary-color);
 }
 
+.nav-link.active .link-text {
+    transform: translateY(-100%);
+}
+
+.nav-link.active .link-hover {
+    transform: translateY(0);
+}
+
 .nav-link:hover .link-text {
     transform: translateY(-100%);
 }
@@ -91,13 +137,30 @@
         right: 0;
         height: 100vh;
         width: 70%;
-        background: #111;
+        background: #0a0f1a;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         transform: translateX(100%);
         transition: transform 0.3s ease;
         border-left: 1px solid var(--glass-border);
+        gap: 30px;
+    }
+
+    .nav-items-group {
+        flex-direction: column;
+        gap: 25px;
+        align-items: center;
+    }
+
+    .nav-actions-group {
+        padding-left: 0;
+        border-left: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 25px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .nav-links.active {
